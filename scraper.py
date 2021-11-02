@@ -5,7 +5,8 @@
 
 # import local libraries
 import sys
-sys.path.append('/home/jeffrey/source/spotscraper/lib')
+# change to your path - absolute path please
+sys.path.append('/opt/spotscraper/lib')
 
 # import scraper libs
 import pandas as pd
