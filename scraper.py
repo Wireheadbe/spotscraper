@@ -26,11 +26,14 @@ tomorrow = datetime.date.today() + datetime.timedelta(days=1)
 d1 = today.strftime("%Y-%m-%d")
 d2 = tomorrow.strftime("%Y-%m-%d")
 
+# set headers
+headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36'}
+
 # set epexspot URL
-url='https://www.epexspot.com/en/market-data?market_area=BE&trading_date=' + d1 + '&delivery_date=' + d2 + '&underlying_year=&modality=Auction&sub_modality=DayAhead&product=60&data_mode=table&period='
+url='https://www.epexspot.com/en/market-data?market_area=BE&auction=MRC&trading_date=' + d1 + '&delivery_date=' + d2 + '&underlying_year=&modality=Auction&sub_modality=DayAhead&product=60&data_mode=table&period='
 
 # get url
-r = requests.get(url)
+r = requests.get(url, headers=headers)
 html = r.text
 soup = BeautifulSoup(html, "html.parser")
 
